@@ -29,3 +29,20 @@ solution(30, 4, 100);
 solution(250, 2, 140);
 solution(20, 6, 120);
 solution(20, 10, 320);
+
+
+console.log("다른풀이------------------------------------------------------------");
+//수학식을 좀더 간결하게 구현함
+//여기서 중요한것은 결국 과자한개가격*과자개수의 값을 내가가진돈으로 뺏을때 음수가 나오면 돈이 남는것
+const solution1 = (a, b, c) => {
+    let money = a * b - c;
+    if (money < 0) {
+        money = 0;
+    }
+    console.log("동수가 부모님께 받아야 하는 돈은 %d원 입니다.", money);
+    return money;
+}
+solution1(30, 4, 100);
+solution1(250, 2, 140);
+solution1(20, 6, 120);
+solution1(20, 10, 320);

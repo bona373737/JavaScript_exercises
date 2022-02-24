@@ -12,11 +12,14 @@ const gender = Number(ssn.substring(6));
 const sex = gender % 2 === 0 ? "여자" : "남자";
 
 let birthYear = Number(ssn.substring(0, 2));
-if (gender < 3) {
-    birthYear += 1900;
-} else {
-    birthYear += 2000;
-}
+
+// if (gender < 3) {
+//     birthYear += 1900;
+// } else {
+//     birthYear += 2000;
+// }
+birthYear = gender < 3 ? birthYear + 1900 : birthYear + 2000;
+
 const date = new Date();
 const age = date.getFullYear() - birthYear + 1;
 

@@ -5,6 +5,7 @@
 solution을 완성하여 아래의 테스트 코드에 대한 출력 결과를 만드시오. 
 */
 
+//함수 파라미터 x값의 자료형을 입력받은 대로 숫자값으로 그래도 두고 풀이함
 function solution(x) {
     let originX = x;
     let sum = 0;
@@ -25,3 +26,23 @@ console.log(solution(10));
 console.log(solution(12));
 console.log(solution(11));
 console.log(solution(13));
+
+
+
+console.log("다른풀이----------------------------------------------");
+// 자료형 변환하여 사용하는 것을 잘 활용 하자!!
+// 함수 파라미터 x값의 자료형을 String으로 변환하여 String배열을 반복문 돌려서 합계구함
+const solution1 = x => {
+    const sx = new String(x);
+
+    let sum = 0;
+    for (const s of sx) {
+        sum += parseInt(s);
+    }
+    return x % sum == 0 ? true : false;
+}
+
+console.log(solution1(10));
+console.log(solution1(12));
+console.log(solution1(11));
+console.log(solution1(13));

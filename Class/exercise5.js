@@ -80,11 +80,73 @@ class Student {
     }
 };
 
-const student1 = new Student();
-student1.grade = 50;
-student1.grade = 60;
-console.log(student1);
-console.log("총계, 평균 : " + student1.getSumAvg());
-console.log("최대값, 최소값 : " + student1.getMinMax());
-console.log("분산값 : " + student1.getVar());
-console.log("표준편차 : " + student1.getStd());
+const student = new Student();
+student.grade = 50;
+student.grade = 60;
+console.log(student._grade);
+console.log("총계, 평균 : " + student.getSumAvg());
+console.log("최대값, 최소값 : " + student.getMinMax());
+console.log("분산값 : " + student.getVar());
+console.log("표준편차 : " + student.getStd());
+
+
+
+console.log("\n다른풀이------------------------------------------------------------");
+class Student1 {
+    constructor() {
+        this._grade1 = [];
+    }
+    set grade1(v) {
+        this._grade1.push(v);
+    }
+    getSumAvg1() {
+        let sum1 = 0;
+        for (const i of this._grade1) {
+            sum1 += i;
+        }
+        return [sum1, sum1 / this._grade1.length];
+    }
+    getMinMax1() {
+        let min = this._grade1[0];
+        let max = this._grade1[0];
+        for (let i = 0; i < this._grade1.length; i++) {
+            const x = this._grade1[i];
+            if (min > x) {
+                min = x;
+            }
+            if (max < x) {
+                max = x;
+            };
+        }
+        return {
+            "min": min,
+            "max": max
+        };
+    }
+    getVar1() {
+        const avg1 = this.getSumAvg1()[1];
+        let dev_sum = 0;
+        for (const x of this._grade1) {
+            const y = avg1 - x;
+            dev_sum += y * y;
+        }
+        return dev_sum / this._grade1.length;
+    }
+    getStd1() {
+        return Math.sqrt(this.getVar1())
+    }
+}
+
+const student1 = new Student1();
+student1.grade1 = 82;
+student1.grade1 = 76;
+student1.grade1 = 91;
+student1.grade1 = 98;
+student1.grade1 = 64;
+console.log(student1._grade1);
+console.log(student1.getSumAvg1());
+//아래처럼 출력하면 출력된 값의 데이터타입이 구분되어 보이지는 않는구먼
+console.log("getSumAvg1 : " + student1.getSumAvg1());
+console.log(student1.getMinMax1());
+console.log(student1.getVar1());
+console.log(student1.getStd1());
