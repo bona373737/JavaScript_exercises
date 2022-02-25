@@ -105,3 +105,6 @@ console.log(solution(["mislav", "stanko", "steave", "ana"],
 ## 문제7
 100~200 사이의 임의의 숫자를 number 라는 변수에 저장하고   
 1부터 number까지의 수 중에서 3의 배수에 대한 총 합을 구하시오
+
+## 문제8
+달력출력하기
