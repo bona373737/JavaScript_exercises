@@ -1,6 +1,6 @@
 /* 
 ## 문제 5.
-for문을 중첩하여 실행하여 아래와 같은 출력 결과를 만드시오.
+for문을 중첩하여 실행하여 아래와 같은 출력 결과를 만드시오
 0 1 2 3 
 1 2 3 4 
 2 3 4 5 
@@ -19,7 +19,9 @@ for (let i = 0; i < 4; i++) {
     // 열개수.. 안쪽회전 횟수
     for (let j = i; j < i + 4; j++) {
         str += j;
-        str += " ";
+        if (j + 1 < i + 4) {
+            str += " ";
+        }
     }
     console.log(str);
 }
@@ -45,3 +47,41 @@ for (let i = 0; i < 4; i++) {
 }
 
 console.log("재귀함수 사용-------------------------------------------------");
+
+// function printNum(level, startNum = 0) {
+//     if (level > startNum) {
+//         let str = "";
+//         for (let i = startNum; i < startNum + 4; i++) {
+//             str += i;
+//             아래부분에 실수 있었음..(i + 1 < startNum + 4) 이게 정답
+//             if (startNum + 1 < startNum + 4) {
+//                 str += " ";
+//             }
+//         }
+//         console.log(str);
+//         printNum(level, startNum + 1);
+//     } else {
+//         return;
+//     }
+// }
+// printNum(5);
+//------------------------------------>문자열 마지막에는 공백이 안들어가야 하는데 해결이 안됬었음
+//------------------------------------>문자열에 공백추가하는 if문에서 i가 아닌 startNum +1으로 비교했음...실수..
+function printNum(level, startNum = 0) {
+    if (level > startNum) {
+        let str = "";
+        let length = startNum + 4
+        for (let i = startNum; i < length; i++) {
+            str += i;
+            //문자열 사이에 공백넣기
+            if (i + 1 < length) {
+                str += " ";
+            }
+        }
+        console.log(str);
+        printNum(level, startNum + 1);
+    } else {
+        return;
+    }
+}
+printNum(5);
