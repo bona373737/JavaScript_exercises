@@ -30,3 +30,30 @@ for (let j = 0, pointsLength = points.length; j < pointsLength; j++) {
     }
 }
 console.log(names);
+
+/*
+문제3.“Life is too short, You need Javascript”라는 문자열에서 
+알파벳“e”가 총 몇번 등장하는지를 구하는 프로그램을 while문을 활용하여 구형하시오
+*/
+const str = 'Life is too short, You need Javascript';
+
+console.log('for문을 활용한 풀이-----------------------------');
+let count = 0;
+for (let i = 0; i < str.length; i++) {
+    if (str[i] === 'e') {
+        count++;
+    }
+}
+console.log('알파벳 e가 등장하는 횟수:' + count);
+
+
+console.log('while문을 활용한 풀이-----------------------------');
+count = 0;
+let i = 0;
+while (i < str.length) {
+    if (str[i] === 'e') {
+        count++;
+    }
+    i++;
+}
+console.log('알파벳 e가 등장하는 횟수:' + count);
