@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loading"></div>
+    <h1>카카오 책 검색</h1>
+    <fieldset>
+        <form id="searchForm">
+            <select name="sortCondition" id="sortCondition">
+                <option value="accuracy" selected>정확도순</option>
+                <option value="latest">발간일순</option>
+            </select>
+            <select name="pageSize" id="pageSize">
+                <option value="10" selected>10건</option>
+                <option value="20">20건</option>
+                <option value="30">30건</option>
+                <option value="40">40건</option>
+                <option value="50">50건</option>
+            </select>
+            <input type="text" name="searchWord" id="searchWord">
+            <button type="button" id="searchBtn">검색</button>
+        </form>
+    </fieldset>
+    <ul id="searchItem">
+        <!-- <li>
+            <a>
+                <img src="./img/noimage.jpg">
+                <div id="text-wrap">
+                    <h3>title</h3>
+                    <p>contents</p>
+                    <div id="detail">
+                        <ul>
+                            <li>authors</li>
+                            <li>publisher</li>
+                            <li>price</li>
+                            <li>sale-price</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </li> -->
+    </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./main.js"></script>
+
+</body>
+</html>
