@@ -57,4 +57,42 @@ new Chart(chart2, {
     }
 });
 
-// my ver1-------------------------------------------------------------------------------------
+// 강사님 ver-------------------------------------------------------------------------------------
+const ageInfo1 = {};
+const nowYear = new Date().getFullYear();
+student.forEach((v, i) => {
+    const key = v.grade + '학년';
+    const birthYear = parseInt(v.birthdate.substring(0, 4));
+    const age = nowYear - birthYear + 1;
+
+    if (ageInfo1[key] === undefined) {
+        ageInfo1[key] = [age];
+    } else {
+        ageInfo1[key].push(age);
+    }
+})
+
+const level = [];
+const age = [];
+
+for (let key in ageInfo) {
+    level.push(key);
+    age.push(getAvg(ageInfo1[key]));
+}
+
+for (let i = 0; i < level.length - 1; i++) {
+    for (let j = i + 1; j < level.length; j++) {
+        const x = parseInt(level[i]);
+        const y = parseInt(level[j]);
+
+        if (x > y) {
+            let temp = level[i];
+            level[i] = level[j];
+            level[i] = temp;
+
+            temp = age[i];
+            age[i] = age[j];
+            age[i] = temp;
+        }
+    }
+}

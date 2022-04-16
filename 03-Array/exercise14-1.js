@@ -23,9 +23,9 @@ for (let j = 0; j < department.length; j++) {
     }
 };
 console.log(studentCount[0]);
-       //department[i]번째가 있으면 studentCount[i]의 값을 1씩 늘려줘야한다. 
-        //즉, department에 해당 값이 있는지 여부와 인덱스번호를 알수 있어야 한다. 
-        //incluedes()보다는 forEach((v,i)=>{})을 사용하는것이 좀더 효율적이다.
+//department[i]번째가 있으면 studentCount[i]의 값을 1씩 늘려줘야한다. 
+//즉, department에 해당 값이 있는지 여부와 인덱스번호를 알수 있어야 한다. 
+//incluedes()보다는 forEach((v,i)=>{})을 사용하는것이 좀더 효율적이다.
 
 // my ver2-----------------------------------------------------------------
 // for(s of student){
@@ -44,3 +44,17 @@ console.log(studentCount[0]);
 //department[i]번째가 있으면 studentCount[i]의 값을 1씩 늘려줘야한다. 
 //즉, department에 해당 값이 있는지 여부와 인덱스번호를 알수 있어야 한다. 
 //incluedes()보다는 forEach((v,i)=>{})을 사용하는것이 효과적이다.
+
+const department1 = [];
+const studentCount1 = [];
+
+student.forEach((v, i) => {
+    d = v.deptno;
+    p = department.indexOf(d);
+    if (p == -1) {
+        department1.push(d);
+        studentCount1.push(1);
+    } else {
+        studentCount1[p]++;
+    }
+})
