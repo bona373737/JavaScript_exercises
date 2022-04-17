@@ -69,3 +69,46 @@ new Chart(chart3, {
         maintainAspectRatio: false,
     }
 });
+
+//강사님 풀이 ver
+const bodyInfo1 = {};
+student.forEach((v, i) => {
+    const key = v.grade + '학년';
+    if (bodyInfo1[key] === undefined) {
+        bodyInfo1[key] = {
+            height: [v.height],
+            weight: [v.weight]
+        };
+    } else {
+        bodyInfo1[key].height.push(v.height);
+        bodyInfo1[key].weight.push(v.weight);
+    }
+});
+
+const grade = [];
+const height = [];
+const weight = [];
+
+for (let key in bodyInfo1) {
+    grade.push(key);
+    height.push(getAvg(bodyInfo1[key]).height);
+    weight.push(getAvg(bodyInfo1[key]).weight);
+}
+
+for (let i = 0; i < grade.length - 1; i++) {
+    for (let j = i + 1; j < grade.length; j++) {
+        if (parseInt(grade[i]) > parseInt(grade[j])) {
+            let temp = grade[i];
+            grade[i] = grade[j];
+            grade[j] = temp;
+
+            temp = height[i];
+            height[i] = height[j];
+            height[j] = temp;
+
+            temp = weight[i];
+            weight[i] = weight[j];
+            weight[j] = temp;
+        }
+    }
+}
